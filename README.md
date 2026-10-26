@@ -20,7 +20,7 @@ El diagrama también está en `diagrama_solucion_Ignacio_Alvarez.puml`.
 ## Conceptos aplicados
 
 1. **Objetos y mensajes:** la productora le envía `comprarEntrada` al asistente, y el asistente les envía mensajes a la entrada, al abono y a la productora. Cada objeto se encarga de una parte de la compra.
-2. **Herencia:** `Banda` es la superclase de `BandaRock`, `BandaTrap` y `BandaIndie`; `Abono` es la superclase de `Fan` y `Vip`. Las subclases reutilizan lo común y cambian solo lo que necesitan.
+2. **Herencia:** `Banda` es la superclase de `BandaRock`, `BandaTrap` y `BandaIndie`; `Abono` es la superclase de `Fan` y `Vip`. Las subclases reutilizan lo común y cambian solo lo que necesitan. En Wollok no hay interfaces, así que la variación de comportamiento se resolvió con herencia y polimorfismo.
 3. **Polimorfismo:** `popularidad()`, `canon()`, `gastoExtra()`, `porcentajeDescuento()` y `bonificar()` se comportan distinto según el tipo de banda o de abono. La productora y el asistente trabajan con todos de la misma forma.
 4. **Encapsulamiento:** el dinero, el historial, las ventas, los descuentos y los datos de las bandas son estado interno y se consultan o modifican mediante métodos. La compra se resuelve en `Asistente.comprarEntrada` para mantener todo consistente.
 5. **Composición y colecciones:** la productora contiene bandas, asistentes y ventas; el asistente contiene un abono y su historial. Los reportes se arman recorriendo esas colecciones con `filter`, `map`, `sum`, `count` y `max`.

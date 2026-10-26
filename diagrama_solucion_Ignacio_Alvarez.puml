@@ -110,11 +110,11 @@ Asistente "1" o-- "*" Entrada : historial
 Entrada "*" --> "1" Banda : banda
 Entrada "*" --> "1" Date : fecha
 
-BandaRock ..|> Banda : hereda
-BandaTrap ..|> Banda : hereda
-BandaIndie ..|> Banda : hereda
-Fan ..|> Abono : hereda
-Vip ..|> Abono : hereda
+BandaRock --|> Banda : hereda
+BandaTrap --|> Banda : hereda
+BandaIndie --|> Banda : hereda
+Fan --|> Abono : hereda
+Vip --|> Abono : hereda
 
 Entrada ..> Productora : consulta impuesto
 Asistente ..> Productora : registra venta
