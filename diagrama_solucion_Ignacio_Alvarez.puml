@@ -1,0 +1,124 @@
+@startuml
+
+class Productora {
+  impuesto
+  bandas
+  asistentes
+  ventas
+  --
+  registrarBanda(banda)
+  registrarAsistente(asistente)
+  registrarVenta(entrada)
+  venderEntradaA(asistente, banda, fecha)
+  precioConImpuesto(precioBase)
+  recaudacion()
+  presupuestoTotal()
+  gananciaTotal()
+  cantidadEntradasVendidas()
+  ventasDe(banda)
+  bandaMasPopular()
+  bonificar(asistente)
+  bonificarAsistentesVip()
+}
+
+class Asistente {
+  abono
+  dineroDisponible
+  entradasCompradas
+  --
+  entradas()
+  historial()
+  cantidadEntradas()
+  puedeComprar()
+  esVip()
+  comprarEntrada(banda, fecha, productora)
+  montoAPagar(entrada, productora)
+  entradasDelAnioAnterior()
+  entradasDelAnio(anio)
+  bandasCompradas()
+  bonificar()
+}
+
+class Entrada {
+  banda
+  fecha
+  precioBase
+  --
+  precioPublico(productora)
+  anio()
+}
+
+class Banda {
+  nombre
+  canonBase
+  --
+  canon()
+  gastoExtra()
+  popularidad()
+  presupuesto()
+}
+
+class BandaRock {
+  solosDeGuitarra
+  --
+  agregarSoloDeGuitarra()
+  gastoExtra()
+  popularidad()
+}
+
+class BandaTrap {
+  tieneHielo
+  --
+  popularidad()
+  canon()
+}
+
+class BandaIndie {
+  instrumentos
+  --
+  agregarInstrumento(instrumento)
+  cantidadInstrumentos()
+  gastoExtra()
+  popularidad()
+}
+
+class Abono {
+  --
+  porcentajeDescuento()
+  esVip()
+  bonificar()
+}
+
+class Fan
+
+class Vip {
+  descuento
+  --
+  porcentajeDescuento()
+  esVip()
+  bonificar()
+}
+
+class Date <<librería Wollok>>
+
+Productora "1" o-- "*" Banda : registra
+Productora "1" o-- "*" Asistente : registra
+Productora "1" o-- "*" Entrada : ventas
+
+Asistente "1" *-- "1" Abono : tiene
+Asistente "1" o-- "*" Entrada : historial
+Entrada "*" --> "1" Banda : banda
+Entrada "*" --> "1" Date : fecha
+
+BandaRock ..|> Banda : hereda
+BandaTrap ..|> Banda : hereda
+BandaIndie ..|> Banda : hereda
+Fan ..|> Abono : hereda
+Vip ..|> Abono : hereda
+
+Entrada ..> Productora : consulta impuesto
+Asistente ..> Productora : registra venta
+Productora ..> Asistente : delega compra
+Productora ..> Banda : consulta presupuesto
+
+@enduml
