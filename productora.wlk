@@ -6,10 +6,6 @@ class Productora {
   const asistentesRegistrados = []
   const ventas = []
 
-  method bandas() = bandasRegistradas
-  method asistentes() = asistentesRegistrados
-  method entradasVendidas() = ventas
-
   method registrarBanda(banda) {
     bandasRegistradas.add(banda)
   }
