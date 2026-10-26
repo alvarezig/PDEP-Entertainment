@@ -1,0 +1,9 @@
+# Historial local de Wollok
+.history
+
+# Logs de Wollok
+log
+*.log
+
+# Dependencias
+node_modules
