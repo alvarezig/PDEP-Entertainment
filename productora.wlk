@@ -1,3 +1,5 @@
+import entradas.*
+
 class Productora {
   var property impuesto = 0
   const bandasRegistradas = []
@@ -22,7 +24,11 @@ class Productora {
 
   method precioConImpuesto(precioBase) = precioBase + (precioBase * impuesto) / 100
 
-  method venderEntradaA(asistente, banda, fecha) = asistente.comprarEntrada(banda, fecha, self)
+  method venderEntradaA(asistente, banda, fecha) {
+    const entrada = new Entrada(banda = banda, fecha = fecha)
+    asistente.comprarEntrada(entrada, self)
+    return entrada
+  }
 
   method recaudacion() = ventas.sum { entrada => entrada.precioPublico(self) }
 

@@ -1,5 +1,6 @@
 class Abono {
   method porcentajeDescuento() = 0
+  method aplicarDescuentoA(precio) = precio - (precio * self.porcentajeDescuento()) / 100
   method esVip() = false
   method bonificar() {}
 }

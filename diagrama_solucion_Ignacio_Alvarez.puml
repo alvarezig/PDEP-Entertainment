@@ -31,7 +31,7 @@ class Asistente {
   cantidadEntradas()
   puedeComprar()
   esVip()
-  comprarEntrada(banda, fecha, productora)
+  comprarEntrada(entrada, productora)
   montoAPagar(entrada, productora)
   entradasDelAnioAnterior()
   entradasDelAnio(anio)
@@ -85,6 +85,7 @@ class BandaIndie {
 class Abono {
   --
   porcentajeDescuento()
+  aplicarDescuentoA(precio)
   esVip()
   bonificar()
 }
