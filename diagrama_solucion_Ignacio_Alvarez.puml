@@ -2,8 +2,8 @@
 
 class Productora {
   impuesto
-  bandas
-  asistentes
+  bandasRegistradas
+  asistentesRegistrados
   ventas
   --
   registrarBanda(banda)
@@ -48,7 +48,7 @@ class Entrada {
   anio()
 }
 
-class Banda {
+abstract class Banda {
   nombre
   canonBase
   --
@@ -82,7 +82,7 @@ class BandaIndie {
   popularidad()
 }
 
-class Abono {
+abstract class Abono {
   --
   porcentajeDescuento()
   aplicarDescuentoA(precio)
@@ -90,7 +90,11 @@ class Abono {
   bonificar()
 }
 
-class Fan
+class Fan {
+  --
+  porcentajeDescuento()
+  esVip()
+}
 
 class Vip {
   descuento
