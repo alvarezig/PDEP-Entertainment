@@ -1,11 +1,15 @@
 class Abono {
-  method porcentajeDescuento() = 0
+  method porcentajeDescuento()
   method aplicarDescuentoA(precio) = precio - (precio * self.porcentajeDescuento()) / 100
-  method esVip() = false
+  method esVip()
   method bonificar() {}
 }
 
-class Fan inherits Abono {}
+class Fan inherits Abono {
+  override method porcentajeDescuento() = 0
+
+  override method esVip() = false
+}
 
 class Vip inherits Abono {
   var property descuento = 0

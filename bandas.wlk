@@ -4,7 +4,7 @@ class Banda {
 
   method canon() = canonBase
   method gastoExtra() = 0
-  method popularidad() = 0
+  method popularidad()
   method presupuesto() = self.canon() + self.gastoExtra()
 }
 
