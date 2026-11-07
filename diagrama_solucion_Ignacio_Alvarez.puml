@@ -107,14 +107,15 @@ class Vip {
 
 class Date <<librería Wollok>>
 
-Productora "1" o-- "*" Banda : registra
-Productora "1" o-- "*" Asistente : registra
-Productora "1" o-- "*" Entrada : ventas
+Productora --> "*" Banda : conoce
+Productora --> "*" Asistente : conoce
+Productora --> "*" Entrada : conoce
 
-Asistente "1" *-- "1" Abono : tiene
-Asistente "1" o-- "*" Entrada : historial
-Entrada "*" --> "1" Banda : banda
-Entrada "*" --> "1" Date : fecha
+Asistente --> "1" Abono : tiene
+Asistente --> "*" Entrada : conoce
+
+Entrada --> "1" Banda : conoce
+Entrada --> "1" Date : conoce
 
 BandaRock --|> Banda : hereda
 BandaTrap --|> Banda : hereda
@@ -126,5 +127,15 @@ Entrada ..> Productora : consulta impuesto
 Asistente ..> Productora : registra venta
 Productora ..> Asistente : delega compra
 Productora ..> Banda : consulta presupuesto
+
+Productora --> "*" Banda : conoce
+Productora --> "*" Asistente : conoce
+Productora --> "*" Entrada : conoce
+
+Asistente --> "1" Abono : tiene
+Asistente --> "*" Entrada : conoce
+
+Entrada --> "1" Banda : conoce
+Entrada --> "1" Date : conoce
 
 @enduml
