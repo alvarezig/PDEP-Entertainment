@@ -3,8 +3,6 @@ class Asistente {
   var property dineroDisponible = 0
   const entradasCompradas = []
 
-  method entradas() = entradasCompradas
-  method historial() = entradasCompradas
   method cantidadEntradas() = entradasCompradas.size()
   method puedeComprar() = dineroDisponible > 0
   method esVip() = abono.esVip()
