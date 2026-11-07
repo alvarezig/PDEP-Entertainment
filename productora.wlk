@@ -34,7 +34,7 @@ class Productora {
 
   method cantidadEntradasVendidas() = ventas.size()
 
-  method ventasDe(banda) = ventas.count { entrada => entrada.banda() == banda }
+  method ventasDe(banda) = ventas.count { entrada => entrada.esDe(banda) }
 
   method bandaMasPopular() {
     if (bandasRegistradas.isEmpty()) {

@@ -46,6 +46,7 @@ class Entrada {
   --
   precioPublico(productora)
   anio()
+  esDe(unaBanda)
 }
 
 abstract class Banda {

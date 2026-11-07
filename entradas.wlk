@@ -6,4 +6,6 @@ class Entrada {
   method precioPublico(productora) = productora.precioConImpuesto(precioBase)
 
   method anio() = fecha.year()
+
+  method esDe(unaBanda) = self.banda() == banda
 }
