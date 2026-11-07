@@ -9,7 +9,7 @@ class Asistente {
 
   method comprarEntrada(entrada, productora) {
     if (!self.puedeComprar()) {
-      throw new DomainException(message = "No se puede comprar una entrada sin saldo positivo")
+      throw new NoSePuedeComprarException(message = "No se puede comprar una entrada sin saldo positivo")
     }
     dineroDisponible -= self.montoAPagar(entrada, productora)
     entradasCompradas.add(entrada)
@@ -29,3 +29,5 @@ class Asistente {
     abono.bonificar()
   }
 }
+
+class NoSePuedeComprarException inherits Exception {}
